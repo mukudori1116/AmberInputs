@@ -1,0 +1,33 @@
+NPT 1 (Restraint complex)
+&cntrl
+    !General config
+    imin=0, ntx=5, irest=1,  !No minimization, read velocity, restart simulation
+    nstlim=25000, dt=0.002,  !2 fs * 25000 = 50 ps
+    ntpr=1000, ntwx=1000,    !Write output and mdcrd every 1000 steps
+    iwrap=0,                 !No wrap
+
+    !Restraint
+    ntr=1,
+    restraintmask='(:1-549@CA,C,N)',
+    restraint_wt=3.0,
+
+    !SHAKE
+    ntf=2, ntc=2,            !Flag of SHAKE; typically ntf=ntc
+
+    !PME, the Particle Mesh Ewald (PME) method is always "on", unless ntb = 0.
+    ntb=2,                   !Apply periodic boundary, ntb=2 means constant pressure
+    cut=8.0,
+    
+    !Temperature
+    ntt=3, gamma_ln=5,       !Use Langevin dynamics
+    temp0=300.0,             !ensemble from in 300 K
+
+    !Pressure
+    ntp=1,                   !MD with isotropic position scaling
+    pres0=1.0,               !Pressure maintained 1.0 atm
+    taup=1.0,                !Pressure relaxation time 1 ps
+    barostat=2,              !Control pressure with monte carlo  https://www.ki1tos.com/entry/2018/09/22/153737
+    
+    !NMROPT
+    nmropt=0,                !No NMROPT
+/

@@ -1,0 +1,9 @@
+Minimize
+&cntrl
+    imin=1,  !Minimization run
+    ntx=1,  !No velocity
+    irest=0,  !Do not restart
+    maxcyc=400, ncyc=200,  !400 cycle minimization 200 steepest and 200 conjugate
+    ntpr=10, ntwx=0,  !print mdout output every 100 cycle, and no mdcrd file written
+    cut=8.0,
+/
