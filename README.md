@@ -1,4 +1,4 @@
-# AmberInputs
+# Amber input files
 ## 1. Energy minimize
 * 200 steps steepest descent
 * 200 steps conjugate gradient
